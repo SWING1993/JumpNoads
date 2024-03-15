@@ -10,7 +10,7 @@
 - (void)viewDidLoad {
     //%log;
     %orig;
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"block-ad-alert1"]) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"block-ad-alert"]) {
         [self showAlertController];
     }
 }
