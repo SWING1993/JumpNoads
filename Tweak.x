@@ -1,5 +1,44 @@
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+@interface _TtC4Jump24JMHomeWrapViewController: UIViewController
+- (void)showAlertController;
+@end
+
+%hook _TtC4Jump24JMHomeWrapViewController
+
+- (void)viewDidLoad {
+    //%log;
+    %orig;
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"block-ad-alert1"]) {
+        [self showAlertController];
+    }
+}
+
+%new
+- (void)showAlertController {
+    NSString *alertTitle = @"JUMP去广告插件";
+    NSString *alertMessage = @"由SWING开发";
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
+	UIAlertAction *action = [UIAlertAction actionWithTitle:@"更多插件" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"block-ad-alert"];
+		NSString *urlString = @"https://github.com/SWING1993";
+        NSURL *url = [NSURL URLWithString:urlString];
+		[[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    }];
+	[alertController addAction:action];
+
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"不再提醒" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"block-ad-alert"];
+    }];
+    [alertController addAction:okAction];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+%end
 
 %hook AdTroopBannerAd
 
