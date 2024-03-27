@@ -1,5 +1,28 @@
 #import <Foundation/Foundation.h>
 
+%hook _TtC4Jump11AppDelegate
+
+- (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 {
+	%log;
+	return %orig;
+}
+
+- (id)splashAd {
+	%log;
+	return nil;	
+}
+
+- (id)hrAd {
+	%log;
+	return nil;	
+}
+
+- (id)cjAd {
+	%log;
+	return nil;	
+}
+
+%end
 
 %hook AdTroopBannerAd
 
