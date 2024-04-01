@@ -1,25 +1,38 @@
 #import <Foundation/Foundation.h>
 
+@interface _TtC4Jump11AppDelegate
+- (void)splashAdOnClosed:(id)arg1;
+@end
+
 %hook _TtC4Jump11AppDelegate
 
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 {
-	%log;
+	//%log;
+	[self splashAdOnClosed:nil];
 	return %orig;
 }
 
-- (id)splashAd {
-	%log;
-	return nil;	
+
+%end
+
+%hook HRBaseSplashAd
+- (_Bool)isAdValid {
+	//%log;
+	return false;		
+}
+%end
+
+%hook HRBaseAdView
+- (id)initWithFrame:(id)arg1 adModel:(id)arg2 {
+	//%log;
+	return nil;		
 }
 
-- (id)hrAd {
-	%log;
-	return nil;	
+- (void)showAd {
+	//%log;
 }
-
-- (id)cjAd {
-	%log;
-	return nil;	
+- (void)loadResource {
+	//%log;
 }
 
 %end
@@ -27,11 +40,11 @@
 %hook AdTroopBannerAd
 
 - (void)loadAdData {
-	%log;
+	//%log;
 }
 
 - (id)initWithSlotID:(id)arg1 rootViewController:(id)arg2 adSize:(id)arg3 {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -39,28 +52,28 @@
 
 %hook AdTroopSDKManager
 + (void)registerAppID:(id)arg1 {
-	%log;
+	//%log;
 }
 %end
 
 %hook AdTroopSplashAd
 
 - (id)initWithSlotID:(id)arg1 {
-	%log;
+	//%log;
 	return nil;
 }
 
 - (_Bool)isAdValid {
-	%log;
+	//%log;
 	return false;
 }
 
 - (void)loadAdData {
-	%log;
+	//%log;
 }
 
 - (void)showAdWithViewController:(id)arg1 bottomView:(id)arg2 {
-	%log;
+	//%log;
 }
 
 %end
@@ -68,11 +81,11 @@
 %hook BaiduMobAdView
 
 - (void)start  {
-	%log;
+	//%log;
 }
 
 - (id)initWithFrame:(id)arg1 {
-	%log;
+	//%log;
 	return nil;
 }
 %end
@@ -80,27 +93,27 @@
 %hook BaiduMobAdUtils
 
 + (void)initialize {
-	%log;
+	//%log;
 }
 %end
 
 %hook BaiduMobAdSplash
 
 - (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 %end
 
 %hook BUAdSDKManager
 + (void)startWithSyncCompletionHandler:(id)arg1 {
-	%log;
+	//%log;
 }
 + (void)startWithAsyncCompletionHandler:(id)arg1 {
-	%log;
+	//%log;
 }
 + (id)sharedInstance {
-	%log;
+	//%log;
 	return nil;
 }
 %end
@@ -108,7 +121,7 @@
 %hook CSJAdSDKManager
 
 - (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 %end
@@ -117,22 +130,22 @@
 %hook GDTAdManager
 
 + (id)defaultManager {
-	%log;
+	//%log;
 	return nil;
 }
 + (id)instanceWithAppId:(id)arg1 {
-	%log;
+	//%log;
 	return nil;
 }
 + (void)load {
-	%log;
+	//%log;
 }
 
 - (void)initLj16fa0  {
-	%log;
+	//%log;
 }
 - (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -141,10 +154,10 @@
 %hook GSAppConfig
 
 + (void)startDownloadPreloadAdVideos {
-	%log;
+	//%log;
 }
 + (id)shared {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -152,7 +165,7 @@
 
 %hook GSLaunchAd
 + (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 %end
@@ -160,20 +173,20 @@
 
 %hook SFAdSDKManager
 + (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 + (id)defaultManager {
-	%log;
+	//%log;
 	return nil;
 }
 
 + (void)load {
-	%log;
+	//%log;
 }
 
 + (void)requestAD:(id)arg1 {
-	%log;
+	//%log;
 }
 
 %end
@@ -181,7 +194,7 @@
 %hook JgAdsSDK
 
 + (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -190,7 +203,7 @@
 %hook ADJgNetworkClient
 
 + (id)initWithBaseURL:(id)arg1 {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -199,7 +212,7 @@
 %hook ADJgRightsManager
 
 + (id)shared {
-	%log;
+	//%log;
 	return nil;
 }
 
@@ -208,7 +221,7 @@
 %hook ADJgSDKConfigModel
 
 + (id)init {
-	%log;
+	//%log;
 	return nil;
 }
 

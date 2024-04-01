@@ -1,8 +1,8 @@
 Package: com.swing.jump
 Name: JumpNoAds-Rootless
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
-Description: JumpApp(基于v2.47.0开发)去广告插件，如果失效请联系WeChat：420408858
+Description: JumpApp去广告插件
 Maintainer: SWING
 Author: SWING
 Section: Tweaks
