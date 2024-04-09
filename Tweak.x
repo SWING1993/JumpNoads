@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface _TtC4Jump11AppDelegate
 - (void)splashAdOnClosed:(id)arg1;
