@@ -13,6 +13,8 @@ else
 	TARGET = iphone:clang:latest:7.0
 endif
 
+INSTALL_TARGET_PROCESSES = Jump
+
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = JumpNoAds
